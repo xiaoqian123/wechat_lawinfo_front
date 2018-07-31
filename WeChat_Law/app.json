@@ -1,0 +1,23 @@
+
+{
+  "pages":[
+    
+    "pages/test/test",
+    "pages/index/index",
+   "pages/subscribe/subscribe",
+   "pages/subscribeUI/subscribeUI",
+    "pages/logs/logs",
+    "pages/show/show",
+   "pages/lookup/lookup"
+  ],
+  "networkTimeout": {
+    "request": 10000
+  },
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  }
+  
+}

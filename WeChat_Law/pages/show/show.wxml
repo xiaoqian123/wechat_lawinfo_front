@@ -1,0 +1,27 @@
+<view class="article">
+
+  <view class='head'>
+
+  <navigator url="" open-type="redirect" hover-class="other-navigator-hover">
+        <view class="title">
+         <text>{{title}}</text>
+        </view>
+  </navigator>
+
+      <view class='subtitle'>
+        <text>{{time}}</text>
+        <text>{{issuing_department}}</text>
+      </view>
+      
+  </view>
+
+  <view class='content'>
+    <view class='urlstyle' bindtap="getUrl">
+       <text>{{text}}</text>
+    </view>
+    <view class='testcontent'>
+    <text>{{content}}</text>
+    </view>
+    
+    </view>
+</view>

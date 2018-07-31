@@ -1,0 +1,144 @@
+<view class="page">
+
+  <view class="page__bd page__bd_spacing">
+    <view class="kind-list">
+      <block wx:for="{{list}}" wx:key="id">
+
+        <view class="kind-list__item">
+
+          <view id="{{item.id}}" class="weui-flex kind-list__item {{item.open ? 'kind-list__item-hd_show' : ''}}">
+
+            <view class="weui-search-bar">
+              <view class="weui-search-bar__form">
+                <view class="weui-search-bar__box">
+                  <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                  <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="getTitle_Input" />
+                  <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                    <icon type="clear" size="14"></icon>
+                  </view>
+                </view>
+                <label class="weui-search-bar__label" bindtap="showInput">
+                  <icon class="weui-icon-search" type="search" size="14"></icon>
+                  <view class="weui-search-bar__text">搜索</view>
+                </label>
+              </view>
+            </view>
+
+
+            <!-- <view class="weui-flex__item">{{name}}</view> bindtap="kindToggle"
+            <image class="kind-list__img" src="images/icon_nav_{{item.id}}.png"></image> -->
+            <!-- <view class="search-wrap">
+              <icon type="search" size="16" />
+              <input type="text" placeholder="请输入搜索内容" class="search-input" name="searchKeyword" bindinput="getTitle_Input" bindfocus="lookupInput"  value="{{title}}" />
+              
+            </view>  -->
+
+
+          </view>
+
+        </view>
+      </block>
+    </view>
+
+
+
+    <view class="search">
+
+      <view class="search-result">
+
+        <scroll-view scroll-y="true" style="height:{{pageheight}}px;" bindscrolltolower="searchScrollLower" enable-back-to-top="true" scroll-into-view="{{toView}}" bindscroll="scroll">
+          <view class="last " id="top" >
+          <view bindtap="shrink1"  class='last_left'>  
+            <view class='last_bgic' ></view>
+            <view> <text>近一周</text></view>
+          </view>
+              <view class='last_right' bindtap="showsubscribe">
+                 <text>订阅号：{{choicename}}</text>
+                  <image  class='icon last_right_img' src="images/Subscribe@3x.png"  />
+                 
+              </view>
+
+            <view>
+            </view>
+          </view>
+          <view class="result-item {{islist1?'listhidden':''}}" wx:for="{{searchSongList1}}" wx:key="unique" data-data="{{item}}">
+            <navigator url="/pages/show/show?id={{item[3]}}" hover-class="navigator-hover">
+              <view class="title">
+
+                <view class='title_txt'>
+                  <text>{{item[0]}}</text>
+                </view>
+
+                <view class="{{ifhidden ? '' : 'iconhidden'}}">
+                  <image class='icon' src="images/new@2x.png" mode="aspectFit" />
+                </view>
+
+              </view>
+              <view class='result-sub'>
+                <text class="subtitle">{{item[1]}}</text>
+                <text class="subtitle">{{item[2]}}</text>
+              </view>
+            </navigator>
+          </view>
+
+
+           <view class="last lastpu" hidden='{{islist2icon}}' bindtap="shrink2" >
+            <view class='last_bgic'></view>
+            <view>
+              <text>近一月</text>
+            </view>
+          </view>
+          <view class=" result-item {{islist2?'listhidden':''}}" wx:for="{{searchSongList2}}" wx:key="unique" data-data="{{item}}">
+            <navigator url="/pages/show/show?id={{item[3]}}" hover-class="navigator-hover">
+              <view class="title">
+
+                <view class='title_txt'>
+                  <text>{{item[0]}}</text>
+                </view>
+
+                <view class="{{ifhidden ? 'iconhidden' : ''}}">
+                  <image class='icon' src="images/new@2x.png" mode="aspectFit" />
+                </view>
+
+              </view>
+              <view class='result-sub'>
+                <text class="subtitle">{{item[1]}}</text>
+                <text class="subtitle">{{item[2]}}</text>
+              </view>
+            </navigator>
+          </view>
+          <view class="last lastpu" hidden='{{islist3icon}}' bindtap="shrink3" >
+            <view class='last_bgic'></view>
+            <view>
+              <text>近一年</text>
+            </view>
+          </view>
+          <view class="result-item {{islist3?'listhidden':''}}" wx:for="{{searchSongList3}}" wx:key="unique" data-data="{{item}}">
+            <navigator url="/pages/show/show?id={{item[3]}}" hover-class="navigator-hover">
+              <view class="title">
+
+                <view class='title_txt'>
+                  <text>{{item[0]}}</text>
+                </view>
+
+                <view class="{{ifhidden ? 'iconhidden' : ''}}">
+                  <image class='icon' src="images/new@2x.png" mode="aspectFit" />
+                </view>
+
+              </view>
+              <view class='result-sub'>
+                <text class="subtitle">{{item[1]}}</text>
+                <text class="subtitle">{{item[2]}}</text>
+              </view>
+            </navigator>
+          </view>
+
+          <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+          <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+        </scroll-view>
+       
+      </view>
+    </view>
+  </view>
+   <view class="gettop" hidden="{{tothetop}}"  bindtap="gettop">回到顶部</view>
+</view>

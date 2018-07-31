@@ -1,0 +1,24 @@
+<view class="page">
+  <view class="page__bd">
+   <view class='cancelandensure'>
+      <view class="left-head-cancel">
+          <view class='cancel' bindtap="cancel">取消</view> 
+          <text> （支持多选）</text>
+      </view>
+      <view class='right-head-cancel'>
+         <view class='ensure' bindtap="getselectinstitution">确定</view>
+      </view>
+     
+    </view>
+    <scroll-view class="scroll-space" scroll-y="true" style="height:{{pageheight-50}}px;">
+      <view class="result-item {{isinstitutionarraytmp[idx]?'isselect':'noselcet'}}" wx:for="{{institutionarray}}" wx:key="unique" wx:for-index="idx" data-data="{{item}}">
+        <view class="" id='{{idx}}' bindtap="getInsIndex">
+          {{item}}
+        </view>
+        <view>
+        </view>
+      </view>
+
+    </scroll-view>
+  </view>
+</view>

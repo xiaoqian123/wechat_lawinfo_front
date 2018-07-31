@@ -1,0 +1,62 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "1.9.1",
+	"appid": "wxbcac25c0dd2c854c",
+	"projectname": "WeChat_Law",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "1",
+					"pathName": "pages/lookup/lookup",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "subscribe",
+					"pathName": "pages/subscribe/subscribe",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "lookup",
+					"pathName": "pages/lookup/lookup",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "subscribeuUI",
+					"pathName": "pages/subscribeUI/subscribeUI",
+					"query": ""
+				}
+			]
+		}
+	}
+}

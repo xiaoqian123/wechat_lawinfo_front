@@ -1,0 +1,78 @@
+<view class="page">
+  <view class="page__bd">
+
+
+    <view class="weui-cells__title">订阅管理</view>
+
+    <view class="weui-cells weui-cells_after-title ">
+
+      <view class=" weui-check__label for-label" wx:for="{{radioItems}}" wx:key="unique" wx:for-index="idx">
+
+        <!-- bindtap='radioChange' -->
+        <view  class="left-for-Items" id='{{idx}}' bindtap='radioChange'>
+
+            <view class="weui-cell__bd   {{item.isChoice ? 'font-input-colour-choice':'font-input-colour'}}">
+              <input class="radioinputChange" focus="{{item.focus}}" value='{{item.name}}' disabled="{{!item.focus}}" bindblur="storgename" id='{{idx}}' />
+            </view>
+
+            <view class="{{item.isChoice?'font-institution-colour-choice':'font-institution-colour'}} " wx:for="{{curtailinstitutionlist[idx]}}" wx:key="unique" id='{{idx}}' wx:for-item="itemName">
+              {{itemName}}
+            </view>
+
+        </view>
+
+        <view class="insitutionChange"  id='{{idx}}' bindtap='editChange'>
+          <view class="weui-cell__ft " id='{{idx}}' >
+            <text id='{{idx}}'>编辑</text>
+            <!-- <icon class="weui-icon-radio" type="success_no_circle" id='{{idx}}' size="16"></icon> -->
+          </view>
+        </view>
+
+      </view>
+
+
+
+
+      <!-- 
+          <view class="weui-cell__bd   {{item.isChoice?'':'font-input-colour'}}">
+            <input class="radioinputChange" focus="{{item.focus}}" value='{{item.name}}' bindblur="storgename" id='{{idx}}' />
+          </view>
+          <view class="changeradio"  id='{{idx}}' bindtap='radioChange'></view>
+          <view class="weui-cell__ft insitutionChange" id='{{idx}}' bindtap='insitutionChange'>
+            <icon class="weui-icon-radio" type="success_no_circle" id='{{idx}}' size="16"></icon>
+          </view> -->
+
+      <!-- 
+          <view  class="weui-cell__ft insitutionChange" id='{{idx}}' hidden='{{item.isChoice}}' bindtap='insitutionChange' > </view>
+        -->
+
+
+
+
+
+      <view class="for-label weui-cell_link">
+        <view class="weui-cell__bd" bindtap="addsubscribe">添加更多</view>
+
+      </view>
+
+    </view>
+  </view>
+
+
+  <view class="controls" hidden='{{iscanvas}}' bindtap="cancle"></view>
+  <view hidden='{{isinstitutionlist}}' class="sectioninstitution" style="height:{{pageheight}}px;">
+    <view class='cancelandensure'>
+      <view class='cancel' bindtap="cancle">取消 （支持多选+）</view>
+      <view class='ensure' bindtap="getselectinstitution">确定</view>
+    </view>
+
+    <scroll-view class="scroll-space" scroll-y="true" style="height:{{pageheight-50}}px;">
+      <view class="result-item {{isinstitutionarraytmp[idx]?'isselect':'noselcet'}}" wx:for="{{institutionarray}}" wx:key="unique" wx:for-index="idx" data-data="{{item}}">
+        <view class="" id='{{idx}}' bindtap="getInsIndex">
+          {{item}}
+        </view>
+      </view>
+
+    </scroll-view>
+  </view>
+</view>

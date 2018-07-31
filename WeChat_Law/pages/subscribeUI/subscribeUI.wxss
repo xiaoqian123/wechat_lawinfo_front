@@ -1,0 +1,16 @@
+@import "/pages/lookup/lookup.wxss";
+.cancelandensure text{
+  color: #adb3b3;
+  font-size: 30rpx;
+  display:flex;
+  align-items:center;
+}
+.left-head-cancel{
+   display: flex;
+   flex-direction: row;
+}
+.right-head-cancel{
+  text-align:right;
+  width: 150rpx;
+  height:33rpx;
+}

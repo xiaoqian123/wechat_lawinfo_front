@@ -1,0 +1,51 @@
+page{  
+  display: flex;  
+  flex-direction: column;  
+  height: 100%;  
+  background-color:#f3f3f3;
+}
+.article{
+     flex: auto;  
+     display: flex;  
+     flex-direction: column;  
+     margin-bottom: 4rpx;
+}
+
+.article .head{
+  background-color:white;
+}
+.article .title{
+  margin-bottom: 4rpx;
+  padding: 40rpx 60rpx 10rpx 60rpx; 
+  text-align: left;  
+ 
+}
+.article .title text{
+  font-size: 44rpx; 
+   color: #000000;
+   font-weight: 600;
+}
+.article .subtitle{
+  padding: 5rpx 60rpx 15rpx 60rpx; 
+  font-size: 26rpx;
+  text-align: right; 
+  color: #605f5f;
+}
+
+.article .content{
+  margin-top: 15px;
+  margin-bottom: 4rpx;
+  padding: 10rpx 55rpx 5rpx 55rpx; 
+  background-color:white;
+  font-size: 38rpx; 
+  color: #444444;
+}
+.urlstyle{
+  margin-top: 30rpx;
+  font-size: 30rpx; 
+  color: #0467e7; 
+}
+.testcontent{
+padding-top: 0rpx;
+margin-top: 15rpx;
+}

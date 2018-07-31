@@ -1,0 +1,104 @@
+<view class="page">
+  <view class="page__bd page__bd_spacing">
+    <view id="{{item.id}}" class="weui-flex kind-list__item search-bar-constum {{item.open ? 'kind-list__item-hd_show' : ''}}">
+      <view class="weui-search-bar">
+        <view class="weui-search-bar__form">
+          <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+            <input type="text" class="weui-search-bar__input" placeholder="请输入关键字" value="{{title}}" focus="{{inputShowed}}" bindinput="getTitle_Input" />
+            <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+              <icon type="clear" size="14"></icon>
+            </view>
+          </view>
+          <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+            <icon class="weui-icon-search" type="search" size="14"></icon>
+            <view class="weui-search-bar__text">搜索</view>
+          </label>
+        </view>
+
+
+      </view>
+
+    </view>
+
+
+    <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
+      <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
+        <view class="weui-cell " bindtap="bindIssauthChange">
+          <view class="weui-cell__bd instop">发布机构</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access">
+            <view class="pickerwidth {{isinscolor?'chcolor':''}}" wx:for="{{institution}}" data-data='{{item}}'>
+              <text>{{item}}</text>
+            </view>
+          </view>
+        </view>
+
+
+
+
+        <view class="weui-cell">
+          <view class="weui-cell__bd">所属分类</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access ">
+
+            <picker class='pickerwidth ' bindchange="bindSectionChange" value="{{section_index}}" range="{{section}}">
+              <view class="{{isseccolor?'chcolor':''}}">
+                {{section[section_index]}}
+              </view>
+            </picker>
+
+          </view>
+        </view>
+
+        <view class="weui-cell">
+          <view class="weui-cell__bd">发布时间</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access xq_row ">
+
+            <picker mode="date" value="{{date_start}}" disabled='{{data_start_disabled}}' start="1999-01-01" end="{{date_new}}" bindchange="bindDateStartChange">
+              <view class="{{isstacolor?'chcolor':''}}">
+
+                {{date_start}} :
+
+              </view>
+
+
+
+            </picker>
+            <picker mode="date" value="{{date_end}}" disabled='{{data_end_disabled}}' start="1999-01-01" end="{{date_new}}" bindchange="bindDateEndChange">
+              <view class="{{isendcolor?'chcolor':''}}">{{date_end}} </view>
+            </picker>
+
+          </view>
+        </view>
+      </view>
+
+      <view class="button_area ">
+        <button class='button_set' bindtap="saw_info_sumit">
+          <text style="color:white">搜索</text>
+        </button>
+      </view>
+
+    </view>
+  </view>
+  <view class="controls" hidden='{{iscanvas}}' bindtap="cancle"></view>
+  <view hidden='{{isinstitutionlist}}' class="sectioninstitution" style="height:{{pageheight}}px;">
+    <view class='cancelandensure'>
+      <view class='cancel' bindtap="cancle">取消 支持多选+</view>
+      <view class='ensure' bindtap="getselectinstitution">确定</view>
+    </view>
+    <scroll-view class="scroll-space" scroll-y="true" style="height:{{pageheight-50}}px;">
+      <view class="result-item {{isinstitutionarraytmp[idx]?'isselect':'noselcet'}}" wx:for="{{institutionarray}}" wx:key="unique" wx:for-index="idx" data-data="{{item}}">
+        <view class="" id='{{idx}}' bindtap="getInsIndex">
+          {{item}}
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<view class="searchbar-result">
+    <view class='view1' wx:for="{{tmphistory}}" wx:key="unique" wx:for-index="idx" data-data="{{item}}">
+        <view class="">
+          <view bindtap='supplementTitle' id='{{idx}}'>{{item}}</view>
+        </view>
+    </view>
+    <view class="clear-bar" wx:if="{{tmphistory.length > 0}}" bindtap='clearhistory'>清除记录</view>
+</view>
